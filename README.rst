@@ -25,6 +25,11 @@ It creates the system user/group for Tomcat.
 
 It installs Apache Tomcat from tarball.
 
+``tomcat.configure``
+--------------------
+
+In configures Apache Tomcat by creating the ``setenv.sh`` file.
+
 ``tomcat.daemon``
 -----------------
 
