@@ -1,0 +1,8 @@
+tomcat:
+    config:
+        JAVA_OPTS:
+            - "-Djava.security.egd=file:/dev/./urandom"
+        CATALINA_OPTS:
+            - "-Xms512M"
+            - "-Xmx1024M"
+
