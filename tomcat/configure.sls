@@ -5,21 +5,19 @@
 {% set tomcat_tarball = tomcat_name ~ ".tar.gz" %}
 {% set tomcat_url = tomcat_settings.base_url ~ "/tomcat-" ~ tomcat_settings.version.major ~ "/v" ~ tomcat_version ~ "/bin/" ~ tomcat_tarball %}
 
-tomcat_systemd_unit:
+include:
+  - tomcat.install
+
+/opt/{{ tomcat_name }}/bin/setenv.sh:
   file.managed:
-    - name: /etc/systemd/system/tomcat.service
-    - source: salt://tomcat/files/tomcat.service.jinja
+    - source: salt://tomcat/files/setenv.sh.jinja
+    - makedirs: True
     - template: jinja
+    - mode: 0750
     - context:
         tomcat_settings: {{ tomcat_settings }}
-        tomcat_name: {{ tomcat_name }}
-
-  module.run:
-    - name: service.systemctl_reload
-    - onchanges:
-      - file: tomcat_systemd_unit
-
-tomcat_enabled:
-  service.enabled:
-    - name: tomcat
+    - user: {{ tomcat_settings.env.user }}
+    - group: {{ tomcat_settings.env.group }}
+    - require:
+      - sls: tomcat.install
 
