@@ -1,0 +1,22 @@
+{% import_yaml "tomcat/defaults.yaml" as default_settings %}
+
+
+{% set os_family_map = salt['grains.filter_by']({
+        'Debian': {},
+        'Suse': {},
+        'Arch': {},
+        'RedHat': {},
+    },
+    grain="os_family",
+    merge=salt['pillar.get']('tomcat:lookup'))
+%}
+
+{% do default_settings.tomcat.update(os_family_map) %}
+
+{% set tomcat_settings = salt['pillar.get'](
+        'tomcat',
+        default=default_settings.tomcat,
+        merge=True
+    )
+%}
+
