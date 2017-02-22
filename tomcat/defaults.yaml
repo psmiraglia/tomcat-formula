@@ -9,4 +9,4 @@ tomcat:
         user: tomcat
         group: tomcat
         java_home: /opt/java
-
+    config:
