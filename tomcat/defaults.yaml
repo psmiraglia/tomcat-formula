@@ -1,0 +1,12 @@
+tomcat:
+    version:
+        major: 8
+        minor: 5
+        patch: 11
+        hash: '81c763b3937802deb46550fd3af29f2db7f4c0dc'
+    base_url: 'http://archive.apache.org/dist/tomcat'
+    env:
+        user: tomcat
+        group: tomcat
+        java_home: /opt/java
+
