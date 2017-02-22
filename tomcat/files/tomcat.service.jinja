@@ -21,12 +21,12 @@ UMask=0007
 RestartSec=10
 Restart=always
 
-ExecStart=/opt/tomcat/bin/startup.sh
-ExecStop=/opt/tomcat/bin/shutdown.sh
+ExecStart=/opt/{{ tomcat_name }}/bin/startup.sh
+ExecStop=/opt/{{ tomcat_name }}/bin/shutdown.sh
 
 Restart=on-failure
 SyslogIdentifier=tomcat
-WorkingDirectory=/home/{{ tomcat_settings.env.user  }}
+WorkingDirectory=/home/{{ tomcat_settings.env.user }}
 
 [Install]
 WantedBy=multi-user.target
