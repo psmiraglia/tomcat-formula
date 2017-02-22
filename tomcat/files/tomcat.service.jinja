@@ -13,9 +13,7 @@ Type=forking
 Environment='JAVA_HOME={{ tomcat_settings.env.java_home }}'
 Environment='JRE_HOME={{ tomcat_settings.env.java_home }}/jre'
 Environment='CATALINA_HOME=/opt/{{ tomcat_name }}'
-Environment='CATALINA_BASE=/opt/{{ tomcat_name }}'
 Environment='CATALINA_PID=/opt/{{ tomcat_name }}/temp/tomcat.pid'
-Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
 
 User={{ tomcat_settings.env.user }}
 Group={{ tomcat_settings.env.group }}

@@ -9,4 +9,13 @@ tomcat:
         user: tomcat
         group: tomcat
         java_home: /opt/java
+    config:
+        JAVA_OPTS:
+            - "-Djava.awt.headless=true"
+            - "-Djava.security.egd=file:/dev/./urandom"
+        CATALINA_OPTS:
+            - "-Xms512M"
+            - "-Xmx1024M"
+            - "-server"
+            - "-XX:+UseParallelGC"
 
