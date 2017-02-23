@@ -35,6 +35,13 @@ In configures Apache Tomcat by creating the ``setenv.sh`` file.
 
 It installs the systemd unit for Apache Tomcat.
 
+``tomcat.purge``
+----------------
+
+It purges the environment created with this formula. In particular, it
+disables and removes the ``systemd`` unit. Then, it removes all the created
+directories. Finally, it remove the system user and group.
+
 References
 ==========
 
