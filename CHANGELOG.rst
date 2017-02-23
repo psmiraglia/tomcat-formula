@@ -4,6 +4,7 @@ tomcat-formula
 
 0.1.1 (devel)
 
+- Added init state (7000541)
 - Added purge state (ca9f4a6)
 
 0.1.1 (2017-02-22)
