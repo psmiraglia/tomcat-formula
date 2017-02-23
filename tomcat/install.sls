@@ -18,7 +18,7 @@ install_binaries:
         - sls: tomcat.user
   
   cmd.run:
-    - name: chown -Rv {{ tomcat_settings.env.user }}:{{ tomcat_settings.env.user }} /opt/{{ tomcat_name }}
+    - name: chown -R {{ tomcat_settings.env.user }}:{{ tomcat_settings.env.user }} /opt/{{ tomcat_name }}
 
   file.symlink:
     - name: /var/log/tomcat
