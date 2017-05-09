@@ -10,8 +10,9 @@ include:
 install_binaries:
   archive.extracted:
     - name: /opt/
+    - if_missing: /opt/{{ tomcat_name }}
     - source: {{ tomcat_url }}
-    - source_hash: {{ tomcat_settings.version.hash }}
+    - source_hash: {{ tomcat_url ~ '.sha1' }}
     - archive_format: tar
     - require:
         - sls: tomcat.user
