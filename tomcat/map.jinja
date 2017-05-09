@@ -1,6 +1,5 @@
 {% import_yaml "tomcat/defaults.yaml" as default_settings %}
 
-
 {% set os_family_map = salt['grains.filter_by']({
         'Debian': {},
         'Suse': {},
@@ -19,4 +18,9 @@
         merge=True
     )
 %}
+
+{% set tomcat_version = tomcat_settings.version.major ~ "." ~ tomcat_settings.version.minor ~ "." ~tomcat_settings.version.patch %}
+{% set tomcat_name = "apache-tomcat-" ~ tomcat_version %}
+{% set tomcat_tarball = tomcat_name ~ ".tar.gz" %}
+{% set tomcat_url = tomcat_settings.base_url ~ "/tomcat-" ~ tomcat_settings.version.major ~ "/v" ~ tomcat_version ~ "/bin/" ~ tomcat_tarball %}
 
